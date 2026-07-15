@@ -3,12 +3,15 @@ import { CORE_CONCEPTS } from './data.js'
 import Header from './components/Headers/Header.jsx';
 import CoreConcepts from './components/CoreConcepts.jsx';
 import TabButtons from './components/TabButtons.jsx';
+import { EXAMPLES } from './data.js';
 
 
 
 
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState("Please Click a button.....");
+  const [selectedTopic, setSelectedTopic] = useState("components");
+  // console.log("selectedTopic =", selectedTopic);
+  // console.log("exampleData =", EXAMPLES[selectedTopic]);
   // let tabContents = 'Please click a button.....'
   function handleSelect(selectedButton) {
 
@@ -19,6 +22,8 @@ function App() {
     // console.log(tabContents);
   }
   console.log("app components execute.....");
+   console.log("selectedTopic =", selectedTopic);
+  console.log("EXAMPLES[selectedTopic] =", EXAMPLES[selectedTopic]);
   return (
     <div>
       <Header />
@@ -39,11 +44,20 @@ function App() {
         <section id="examples">
           <h1>Examples</h1>
           <menu>
-            <TabButtons onSelect={() => handleSelect('Components')}>Components</TabButtons>
-            <TabButtons onSelect={() => handleSelect('Jsx')}>Jsx</TabButtons>
-            <TabButtons onSelect={() => handleSelect('Props')}>Props</TabButtons>
-            <TabButtons onSelect={() => handleSelect('State')}>State</TabButtons>
+            <TabButtons onSelect={() => handleSelect('components')}>Components</TabButtons>
+            <TabButtons onSelect={() => handleSelect('jsx')}>Jsx</TabButtons>
+            <TabButtons onSelect={() => handleSelect('props')}>Props</TabButtons>
+            <TabButtons onSelect={() => handleSelect('state')}>State</TabButtons>
           </menu>
+
+          <div id="tab-content">
+            <h1>{EXAMPLES[selectedTopic].title}</h1>
+            <p>{EXAMPLES[selectedTopic].description}</p>
+            <pre>
+              <code>{EXAMPLES[selectedTopic].code}</code>
+            </pre>
+          </div>
+
           {/* {tabContents} */}
           {selectedTopic}
         </section>
