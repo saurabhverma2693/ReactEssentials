@@ -1,4 +1,5 @@
 export default function TabButtons({children,onSelect}){
+    console.log("tab button execute.....");
     return (
         <li>
             <button onClick={onSelect}>{children}</button>
