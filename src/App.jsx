@@ -5,21 +5,11 @@ import CoreConcepts from './components/CoreConcepts.jsx';
 import TabButtons from './components/TabButtons.jsx';
 import { EXAMPLES } from './data.js';
 
-
-
-
 function App() {
   const [selectedTopic, setSelectedTopic] = useState();
-  // console.log("selectedTopic =", selectedTopic);
-  // console.log("exampleData =", EXAMPLES[selectedTopic]);
-  // let tabContents = 'Please click a button.....'
-  function handleSelect(selectedButton) {
 
-    // selectedButton => 'Components','Jsx','Props','State'
-    // tabContents = selectedButton;
+  function handleSelect(selectedButton) {
     setSelectedTopic(selectedButton);
-    // console.log(selectedTopic);
-    // console.log(tabContents);
   }
   console.log("app components execute.....");
 
@@ -37,8 +27,6 @@ function App() {
     );
   }
 
-  // console.log("selectedTopic =", selectedTopic);
-  // console.log("EXAMPLES[selectedTopic] =", EXAMPLES[selectedTopic]);
   return (
     <div>
       <Header />
@@ -46,17 +34,7 @@ function App() {
         <section id="core-concepts">
           <h1>Core Concepts</h1>
           <ul>
-
             {CORE_CONCEPTS.map((conceptItem) => (<CoreConcepts key={conceptItem.title} {...conceptItem} />))}
-            {/* 
-            <CoreConcepts
-              title={CORE_CONCEPTS[0].title}
-              description={CORE_CONCEPTS[0].description}
-              image={CORE_CONCEPTS[0].image}
-            />
-            <CoreConcepts {...CORE_CONCEPTS[1]} />
-            <CoreConcepts {...CORE_CONCEPTS[2]} />
-            <CoreConcepts {...CORE_CONCEPTS[3]} /> */}
           </ul>
         </section>
         <section id="examples">
@@ -71,11 +49,7 @@ function App() {
             <TabButtons isSelected={selectedTopic === 'state'}
               onSelect={() => handleSelect('state')}>State</TabButtons>
           </menu>
-
           {tabContent}
-
-          {/* {tabContents} */}
-          {/* {selectedTopic} */}
         </section>
       </main>
     </div>
@@ -83,3 +57,5 @@ function App() {
 }
 
 export default App;
+
+
